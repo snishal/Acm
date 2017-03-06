@@ -14,7 +14,6 @@ public class MainActivity extends Activity {
     EditText editText;
     Button button;
     ImageView i;
-    final String question[] = {"question1","question2","question3","question4","question5"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,15 +22,17 @@ public class MainActivity extends Activity {
         i = (ImageView)findViewById(R.id.imageView);
         i.setImageResource(R.drawable.acm_logo);
         editText = (EditText)findViewById(R.id.editText);
+        final Intent intent = getIntent();
+        this.setResult(1,intent);
         button = (Button)findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String team_id = editText.getText().toString();
                 if(team_id.length()>0){
-                    Intent i = new Intent(getApplicationContext(),Question.class);
-                    i.putExtra("question",question[team_id.charAt(6)-49]);
-                    startActivity(i);
+                    int team = Integer.parseInt(team_id.substring(6));
+                    intent.putExtra("team_id",team);
+                    finish();
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"Enter Team ID",Toast.LENGTH_SHORT).show();
@@ -39,4 +40,5 @@ public class MainActivity extends Activity {
             }
         });
     }
+
 }
