@@ -1,0 +1,317 @@
+*{
+  margin: 0px;
+}
+body{
+  transition-delay: .25s;
+  transition: all 1s ease-in-out;
+}
+figure{
+  background-color: #eee;
+  padding: 20px;
+  display: flex;
+}
+figcaption{
+  font-family: 'Roboto Slab', sans-serif;
+  text-align: center;
+  margin:0 auto;
+}
+#logo2{
+  float: right;
+}
+.util{
+  display: flex;
+  justify-content: space-between;
+}
+.util span{
+  display: inline-flex;
+}
+#timer_img{
+  margin-top: 20px;
+  margin-left: 10px;
+}
+#timer{
+  margin-top: 40px;
+  margin-left: 20px;
+  color: #0d96c2;
+  font-family: 'Roboto Slab', sans-serif;
+}
+#help{
+  transition: all 1s ease-in-out;
+  float: right;
+  background-color: #0282ff;
+  color: white;
+  height: 40px;
+  width: 40px;
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 20px;
+  border-radius: 50%;
+  opacity: 0.7;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+}
+#help:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+.overlay{
+  position: absolute;
+  opacity: 0;
+  overflow: hidden;
+  z-index: -1;
+  transition-delay: .25s;
+  transition: all 1s ease-in-out;
+}
+.text{
+  padding-left: 70px;
+  padding-top: 0px;
+  font-size: 20px;
+  font-family: 'Roboto Slab', sans-serif;
+  word-wrap: break-word;
+  color: white;
+}
+#article{
+  transition-delay: .25s;
+  transition: all 1s ease-in-out;
+}
+.member{
+  width: 30%;
+  text-align: center;
+  margin-top: 10%;
+  margin-bottom: 7%;
+  font-family: 'Roboto Slab', sans-serif;
+}
+.grid{
+  margin: 0%  auto 3% auto;
+  border: solid thin black;
+  width: 400px;
+  height: 400px;
+  box-shadow: 1px 12px 16px 1px rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.row{
+  display: flex;
+  width: 100%;
+}
+.row_sudoku{
+  height: 33.36%;
+}
+.row_hitori{
+  height: 12.4%; 
+}
+.row_kakuro{
+  height: 9.981%;
+}
+.block{
+  border: solid thin black;
+  height: 100%;
+  width: 33.34%;
+}
+.empty_block{
+  display: flex;
+  background-color: darkgrey;
+  border: solid thin black;
+  width: 10%;
+  height: 100%;
+}
+.kakuro_div{
+  border:solid thin black;
+  background-color: darkgrey;
+  font-size: 15px;
+  width:10%;
+  height:100%;
+  position:relative;
+  font-weight: bold;
+}
+.kakuro_div span{
+  font-size: 13px;
+}
+.line1 {
+  position:absolute;
+  border-top:1px solid black;
+  width:56px;
+  transform: rotate(45deg);
+  transform-origin: 0% 0%;
+}
+.line2 {
+  position:absolute;
+  border-top:1px solid black;
+  width:56px;
+  transform: rotate(135deg);
+  transform-origin: 20px 8px;
+}
+.kakuro_div .top_right{
+ position: absolute;
+ top: 0;
+ right: 0;
+}
+.kakuro_div .top_left{
+ position: absolute;
+ top: 0;
+ left: 0;
+}
+.kakuro_div .bottom_right{
+ position: absolute;
+ bottom: 0;
+ right: 0;
+}
+.kakuro_div .bottom_left{
+ position: absolute;
+ bottom: 0;
+ left: 0;
+}
+.kakuro_div .mid_left{
+ position: absolute;
+ top: 30%;
+ left: 0;
+}
+.kakuro_div .mid_right{
+ position: absolute;
+ top: 30%;
+ right: 0;
+}
+.kakuro_div .mid_top{
+ position: absolute;
+ top: 0;
+ left: 35%;
+}
+.kakuro_div .mid_bottom{
+ position: absolute;
+ bottom: 0;
+ left: 35%;
+}
+input{
+  text-align: center;
+  font-size: 16px;
+  border: solid thin black;
+}
+.sudoku_input{
+  width: 30.2%;
+  height: 30.54%;
+  font-size: 20px;
+  -moz-appearance: textfield;
+}
+.sudoku_moz_input{
+  width: 30.1%;
+  height: 30.26%;
+}
+.hitori_input{
+  height: 100%;
+  width: 12.5%;
+  border: solid thin black;
+  cursor: pointer;
+}
+.hitori_moz_input{
+  width: 11.5%;
+}
+.kakuro_input{
+  width: 10%;
+  height: 100%;
+  border: solid thin black;
+  -moz-appearance: textfield;
+}
+.kakuro_moz_input{
+  width: 9%;
+}
+input[type='text']{
+  font-weight: bold;
+}
+.sudoku_text{
+  color: #0282ff;
+  background-color: #eee;
+}
+input[type='number']:focus{
+  border-color: #87CEFA;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.button_green {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #4CAF50;
+}
+.button_green:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+.button_shawdow:hover{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -160px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+#message{
+  margin: 15% 25%;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Roboto Slab', sans-serif;
+  background-color: #4a4a4a;
+  color: white;
+  border-radius: 8px;
+}
+
+@media (min-width: 1400px){
+
+  .sudoku_input{
+    width: 31.8%;
+    height: 30.2%;
+    font-size: 20px;
+    -moz-appearance: textfield;
+  }
+ 
+}
